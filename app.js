@@ -21,19 +21,46 @@ app.get('/', (req, res) => {
 });
 
 app.post('/search', async (req, res) => {
-    const searchTerm = req.body.id.toString();
-    var query = 'SELECT * FROM users WHERE id = ';
-    query = query + searchTerm;
-    pool.query(query, (error, results) => {
-        if (error) {
-            res.redirect('/');
-        }
-        const users = results.rows;
-        res.render('index', { users });
-      });
-    
-  });
+  const checkBox = req.body.sqlcheck; 
+    console.log({...req.body});
 
+    if(checkBox){
+      const searchTerm = req.body.id.toString();
+      var query = 'SELECT * FROM users WHERE id = ';
+      query = query + searchTerm;
+      pool.query(query, (error, results) => {
+          if (error) {
+              res.redirect('/');
+          }
+          const users = results.rows;
+          res.render('index', { users });
+        });
+    } else {
+      const searchTerm = req.body.id.toString();
+      var isValid = true;
+
+      if (!searchTerm.match(/^[a-zA-Z0-9_-]+$/)) {
+          isValid = false;
+        }
+
+      var query = 'SELECT * FROM users WHERE id = ';
+      query = query + searchTerm;
+      
+      if(isValid){
+      pool.query(query, (error, results) => {
+          if (error) {
+              res.redirect('/');
+          }
+          const users = results.rows;
+          res.render('index', { users });
+          
+        });
+    } else {
+      res.redirect('/');
+    }
+  }
+  });
+  
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

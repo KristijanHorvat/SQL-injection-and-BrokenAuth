@@ -4,12 +4,14 @@
   <title>Express.js & PostgreSQL Web App</title>
 </head>
 <body>
-
+  
   <h2>Pretraživanje korisnika:</h2>
   <form method="post" action="/search">
     <label for="name">Id:</label>
     <input type="text" id="id" name="id" required>
     <button type="submit">Pretraži</button>
+    <label >Vulnerable</label>
+    <input type="checkbox" name="sqlcheck" id="sqlcheck" value="true">
   </form>
   <h1>Popis korisnika</h1>
   <ul>
