@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Express.js & PostgreSQL Web App</title>
+</head>
+<body>
+
+  <h2>Pretraživanje korisnika:</h2>
+  <form method="post" action="/search">
+    <label for="name">Id:</label>
+    <input type="text" id="id" name="id" required>
+    <button type="submit">Pretraži</button>
+  </form>
+  <h1>Popis korisnika</h1>
+  <ul>
+    <% users.forEach(function(user) { %>
+      <li><%= user.id %> - <%= user.name %> - <%= user.email %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>
