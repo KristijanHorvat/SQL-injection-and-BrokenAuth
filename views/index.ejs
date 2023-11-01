@@ -19,5 +19,18 @@
       <li><%= user.id %> - <%= user.name %> - <%= user.email %></li>
     <% }); %>
   </ul>
+  <h1>Login Page</h1>
+  
+  <form method="POST" action="/login">
+    
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required><br>
+    <label >Vulnerable</label>
+    <input type="checkbox" name="loginCheck" id="loginCheck" value="true">
+    <input type="submit" value="Login">
+  </form>
 </body>
 </html>
