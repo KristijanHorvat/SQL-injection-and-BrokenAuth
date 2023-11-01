@@ -20,10 +20,10 @@ app.use(passport.session());
 
 // Povezivanje na PostgreSQL bazu podataka
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'studAdmin',
-  password: '5432',
+  user: 'postgres_db_qgmw_user',
+  host: 'dpg-cl0f72is1bgc73a12mm0-a',
+  database: 'postgres_db_qgmw',
+  password: 'U0GUQNQ4jwkKm8Xmx28ldyrd3B06df73',
   port: 5432,
 });
 
