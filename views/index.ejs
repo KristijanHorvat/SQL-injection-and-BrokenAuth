@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Express.js & PostgreSQL Web App</title>
+  <title>SQL injection and Broken Auth example</title>
 </head>
 <body>
-  
+  <h3>Upute:</h3>
+  <ul>
+    <li>
+      1. kada je tickbox nije oznacen odnosno aplikacija nije ranjiva ako probamo upisati u polje "1 OR 1=1" nece raditi, no ako probamo 1,2,3 raditi ce
+    </li>
+    <li>
+      2. kad je tickbox oznacen aplikacija je ranjiva i ako ubacimo "1 OR 1=1" aplikacija ce izbaciti cijelu tablicu
+    </li>
+  </ul>
   <h2>Pretraživanje korisnika:</h2>
   <form method="post" action="/search">
     <label for="name">Id:</label>
@@ -18,6 +26,18 @@
     <% users.forEach(function(user) { %>
       <li><%= user.id %> - <%= user.name %> - <%= user.email %></li>
     <% }); %>
+  </ul>
+  <h3>Upute:</h3>
+  <ul>
+    <li>
+      1. tickbox je oznacen, prijavimo se s podacima user1 i password1 i klikom na gumb Login, presmjerava nas na /profileView i kada
+       se klikne odjava vrati se na login page stranicu, i ako probamo pritupiti u url-u /profileView presmjeriti ce nas na tu stranicu
+       									  
+    </li>
+    <li>
+      2. tickbox nije oznacen, prijava s podacima user: user1 i pass: racunarstvojezanimljivojeej, preusmjerava na /protected, kad se odjavi
+                                   i dodamo u url-u /protected presmjeriti ce na /login, tj nece dati da se pristupi stranici protected
+    </li>
   </ul>
   <h1>Login Page</h1>
   
