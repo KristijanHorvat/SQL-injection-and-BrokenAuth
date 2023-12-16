@@ -1,2 +1,2 @@
-# web2_lab2
+#SQL injection and broken authentication example
  
